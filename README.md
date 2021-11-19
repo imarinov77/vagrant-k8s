@@ -6,7 +6,7 @@ Create new internal virtula switch in hyper-v
 
 Find the interface index of the new virtual switch 
 
-Get-NetAdapter
+	Get-NetAdapter
 	
 Set IP address.Find ifIndex from the previous command
 
