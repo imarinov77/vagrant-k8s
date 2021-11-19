@@ -25,7 +25,7 @@ Vagrant.configure("2") do |config|
             nmcli con mod $conn ipv4.addresses 172.20.112.10/20
             nmcli con mod $conn ipv4.gateway 172.20.112.1
             nmcli con mod $conn ipv4.method manual
-            nmcli con mod $conn ipv4.dns "172.20.112.1"
+            nmcli con mod $conn ipv4.dns "8.8.8.8"
             reboot
             SHELL
         end
@@ -42,7 +42,7 @@ Vagrant.configure("2") do |config|
                 nmcli con mod $conn ipv4.addresses 172.20.112.#{i + 10}/20
                 nmcli con mod $conn ipv4.gateway 172.20.112.1
                 nmcli con mod $conn ipv4.method manual
-                nmcli con mod $conn ipv4.dns "172.20.112.1"
+                nmcli con mod $conn ipv4.dns "8.8.8.8"
                 reboot
                 SHELL
             end
