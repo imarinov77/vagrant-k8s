@@ -17,7 +17,7 @@ Vagrant.configure("2") do |config|
       
     config.vm.define "k8s-master" do |master|
         master.vm.box = IMAGE_NAME
-        master.vm.network "public_network", bridge: "Default Switch", ip: "172.20.120.10"
+        master.vm.network "public_network", bridge: "k8s"
         master.vm.hostname = "k8s-master"
 		master.vm.provision "shell" do |s|
             s.inline = <<-SHELL
@@ -34,7 +34,7 @@ Vagrant.configure("2") do |config|
     (1..N).each do |i|
         config.vm.define "node-#{i}" do |node|
             node.vm.box = IMAGE_NAME
-            node.vm.network "public_network", bridge: "Default Switch", ip: "172.20.120.#{i + 10}"
+            node.vm.network "public_network", bridge: "k8s"
             node.vm.hostname = "node-#{i}"
             node.vm.provision "shell" do |s|
                 s.inline = <<-SHELL
