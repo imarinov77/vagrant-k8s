@@ -1,8 +1,3 @@
- #Vagrant.configure(2) do |config|
- # config.vm.box = "centos/7"
- # config.vm.provider "hyperv"
- #config.vm.network "public_network", bridge: "Default Switch"
-#end
 IMAGE_NAME = "centos/7"
 N = 2
 
