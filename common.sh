@@ -56,7 +56,9 @@ sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
 #Set hosts
 sudo echo "172.20.112.10  k8s-master.k8s k8s-master" | tee -a /etc/hosts
 sudo echo "172.20.112.11  node-1.k8s  node-1" | tee -a /etc/hosts
-sudo echo "172.20.112.12  node-2.k8s  node-2" | tee -a /etc/hosts   
+sudo echo "172.20.112.12  node-2.k8s  node-2" | tee -a /etc/hosts 
+sudo echo "172.20.112.100  nfs-server" | tee -a /etc/hosts  
+
 
 #Update all packages
 sudo yum update -y 
