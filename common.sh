@@ -13,7 +13,7 @@ net.ipv4.ip_forward = 1
 EOF
 sudo sysctl --syste   
 
-#Dsiable swap
+#Disable swap
 sudo swapoff -a
 sudo sed -i '/swap/ s/^/#/' /etc/fstab  
 
