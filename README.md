@@ -31,10 +31,10 @@ Run powershell in admin mode and execute:
 Init master node k8s-master 
 	
 	kubeadm init --apiserver-advertise-address=172.20.112.10    --pod-network-cidr=192.168.0.0/16
-	
+
 	mkdir $HOME/.kube
 
-	cp cp -r /etc/kubernetes/admin.conf $HOME/.kube/config
+	cp -r /etc/kubernetes/admin.conf $HOME/.kube/config
 
 	kubectl apply -f https://projectcalico.docs.tigera.io/manifests/calico-typha.yaml
 
