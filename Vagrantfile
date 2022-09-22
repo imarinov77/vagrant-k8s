@@ -3,7 +3,6 @@ N = 2
 
 Vagrant.configure("2") do |config|
     config.ssh.insert_key = false
-    config.vm.provision "shell", path: "common.sh"
 
     config.vm.provider "hyperv" do |v|
         v.memory = 2048
@@ -21,8 +20,9 @@ Vagrant.configure("2") do |config|
             nmcli con mod $conn ipv4.gateway 172.20.112.1
             nmcli con mod $conn ipv4.method manual
             nmcli con mod $conn ipv4.dns "8.8.8.8"
-            reboot
+            systemctl restart network
             SHELL
+        master.vm.provision "shell", path: "common.sh"
         end
     end
 
@@ -38,10 +38,13 @@ Vagrant.configure("2") do |config|
                 nmcli con mod $conn ipv4.gateway 172.20.112.1
                 nmcli con mod $conn ipv4.method manual
                 nmcli con mod $conn ipv4.dns "8.8.8.8"
-                reboot
+                systemctl restart network
                 SHELL
+            node.vm.provision "shell", path: "common.sh"
             end
         
         end
+
     end
+
 end

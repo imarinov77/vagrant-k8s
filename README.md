@@ -20,6 +20,23 @@ More information - https://docs.microsoft.com/en-us/virtualization/hyper-v-on-wi
 
 #Vagrant
 
-run powershell in admin mode and execute:
+Genereate a new ssh keys and add the pub key in common.sh 
+
+Run powershell in admin mode and execute:
 
 	vagrant up
+
+#Create k8s cluster 
+
+Init master node k8s-master 
+	
+	kubeadm init --apiserver-advertise-address=172.20.112.10    --pod-network-cidr=192.168.0.0/16  --cri-socket=unix:///var/run/crio/crio.sock
+
+	mkdir $HOME/.kube
+
+	cp cp -r /etc/kubernetes/admin.conf $HOME/.kube/config
+
+	kubectl apply -f https://projectcalico.docs.tigera.io/manifests/calico-typha.yaml
+
+Init worker - follow instructions from master init
+	
