@@ -6,7 +6,7 @@ sudo yum update -y
 
 #Network config
 sudo modprobe br_netfilter
-sudo cat << EOF | tee /etc/modules-load.d/k8s.conf
+sudo cat << EOF | sudo tee /etc/modules-load.d/k8s.conf
 br_netfilter
 EOF
 cat << EOF | sudo tee /etc/sysctl.d/k8s.conf
